@@ -19,9 +19,17 @@
 
   <!-- 页面元数据 -->
   
-  <title>404 Paniked - infiBlog</title>
+  <title>彩虹六号：围攻 CGI与PCK声音解包指南 - infiBlog</title>
+  
+    <meta name="keywords" content="游戏,彩虹六号,逆向,教程,RAD Video Tools,QuickBMS">
   
 
+  
+    <meta name="description" content="自Y5S3暗影之遗行动开始, 声音文件由PCK包变为了AnvilNext的Forge包. 本教程暂未对此做出更新
+
+包本身和部分解包后的文件已上传至我的下载站, 持续更新
+infiDownloadSite/R6SFiles
+本教程需要您有一定计算机基础">
   
 
   <!-- feed -->
@@ -63,6 +71,8 @@
       <p class="title"></p>
       <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
         <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
         
       </ul>
     </div>
@@ -273,7 +283,7 @@
     <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper page dock' style="display: none;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg=""></div>
           
@@ -348,8 +358,8 @@
       <div class='body-wrapper' id="pjax-container">
         
 
-<div class='l_main no_sidebar'>
-  <article class="article post white-box reveal md shadow article-type-page" id="page" itemscope itemprop="blogPost">
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
 
 
@@ -359,7 +369,7 @@
     
     
       <h1 class="title">
-        404 Paniked
+        彩虹六号：围攻 CGI与PCK声音解包指南
       </h1>
       <div class='new-meta-box'>
         
@@ -376,6 +386,13 @@
         
           
             
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E4%B8%AD%E6%96%87/">中文</a><span class="sep"></span><a class="category-link" href="/categories/%E5%BD%A9%E8%99%B9%E5%85%AD%E5%8F%B7/">彩虹六号</a><span class="sep"></span><a class="category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a><span class="sep"></span><a class="category-link" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a><span class="sep"></span><a class="category-link" href="/categories/%E9%80%86%E5%90%91/">逆向</a>
+    </a>
+  </div>
+
 
           
         
@@ -383,7 +400,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>Published on: Dec 27, 2020</p>
+    <p>Published on: Mar 17, 2020</p>
   </a>
 </div>
 
@@ -394,7 +411,7 @@
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="404 Paniked" data-path="/404">
+      <div id="lc-pv" data-title="彩虹六号：围攻 CGI与PCK声音解包指南" data-path="/posts/2020/03/r6s-datamine-guide.zh/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         Views
@@ -411,11 +428,167 @@
 
 
   
-  <p class='p logo center huge'>404</p>
-<p class='p center bold'>Not Found</p>
-<p class='p center small'>Address typo / Moved / Removed ?</p>
+  <p><strong>自Y5S3暗影之遗行动开始, 声音文件由PCK包变为了AnvilNext的Forge包. 本教程暂未对此做出更新</strong></p>
+<p><img src="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/R6S.CGI.y5s1_opsunlock_bundle_dynamic.360P10FPS.gif" class="lazyload placeholder" data-srcset="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/R6S.CGI.y5s1_opsunlock_bundle_dynamic.360P10FPS.gif" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="y5s1_opsunlock_bundle_dynamic"></p>
+<p><strong>包本身和部分解包后的文件已上传至我的下载站, 持续更新</strong></p>
+<p><a target="_blank" rel="noopener" href="https://dl.infi.wang/R6SFiles/">infiDownloadSite/R6SFiles</a></p>
+<p><strong>本教程需要您有一定计算机基础</strong></p>
+<a id="more"></a>
 
+<p>下载站也会对一些赛季限定内容进行归档, 让Siege的历史变得Unbreakable<a href="R6S%E7%AB%8B%E9%A1%B9%E4%B9%8B%E5%88%9D%E7%9A%84%E5%86%85%E9%83%A8%E4%BB%A3%E5%8F%B7">^1</a>!</p>
+<p><strong>注意, 为了规避版权风险并减少无谓的破解，我永远不会归档二进制文件.</strong></p>
+<h1 id="Operation-Breach-Out"><a href="#Operation-Breach-Out" class="headerlink" title="Operation Breach Out"></a>Operation Breach Out</h1><h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>*Rainbow Six Siege Operation Shifting Tides</p>
+<p>*正在连接到服务器</p>
+<p><img src="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/R6S.Y4S4.R2SI.MainMenu.Week1.jpg" class="lazyload placeholder" data-srcset="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/R6S.Y4S4.R2SI.MainMenu.Week1.jpg" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="R2SI2020 Main Menu"></p>
+<p>*通行证加载</p>
+<p><img src="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/R6S.CGI.y4s4_overview.jpg" class="lazyload placeholder" data-srcset="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/R6S.CGI.y4s4_overview.jpg" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="&quot;Welcome to the program. &quot;"></p>
+<p>*通行证购买, 通行证关闭</p>
+<p><i class="fas fa-history"></i> 通往国际邀请赛之路 58:32</p>
+<span class='p cyan'><i class=fas fa-arrow-right> 对战已开始</i></span>
+
+<p><img src="https://1734811051.rsc.cdn77.org/data/images/full/360859/rainbow-six-siege-road-to-si-2020-everything-you-need-to-know.jpg" class="lazyload placeholder" data-srcset="https://1734811051.rsc.cdn77.org/data/images/full/360859/rainbow-six-siege-road-to-si-2020-everything-you-need-to-know.jpg" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="Stadium Match Start"></p>
+<div class="audio"><audio controls preload><source src='https://dl.infi.wang/R6SFiles/Sounds/Music/Map/Stadium/Theme.ogg' type='audio/mp3'>Your browser does not support the audio tag.</audio></div>
+
+<p>&emsp;&emsp;<del>当时听到这段BGM的时候差点没Ban对干员, 实在太ao听了</del></p>
+<p>&emsp;&emsp;活动开始几天后发生了什么相信大家都知道. 很不巧, 加之自己的电脑显卡爆炸, 没有BGM听我要死了</p>
+<p>&emsp;&emsp;所以我就开始研究怎么解包力，，，</p>
+<h2 id="分析及解包"><a href="#分析及解包" class="headerlink" title="分析及解包"></a>分析及解包</h2><p>&emsp;&emsp;R6S的exe(PE)也许会有部分逻辑, 但太大了、没必要, 何况我也不是很懂binary逆向.  <del>而且通过观察黑盒判断黑盒内部逻辑不挺好玩的吗</del></p>
+<p>&emsp;&emsp;R6S使用了Ubi自研的AnvilNext3.0引擎, 而用于存档的forge文件还和其它Anvil引擎游戏不太一样(好像FH也这个德性?) 所以材质、模型之类的东西我现在就不尝试了. (也许高考完会试试)</p>
+<p>&emsp;&emsp;那剩下的只有CGI和声音了.</p>
+<h3 id="CGI"><a href="#CGI" class="headerlink" title="CGI"></a>CGI</h3><p><strong>Ubi没有把声音打在bik里, 要么准备解pck声音包, 要么就享受无声世界罢.</strong></p>
+<h4 id="文件信息"><a href="#文件信息" class="headerlink" title="文件信息"></a>文件信息</h4><p><img src="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/RADVT.Player.m21_intro.png" class="lazyload placeholder" data-srcset="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/RADVT.Player.m21_intro.png" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="Situation m21 Intro"></p>
+<p><img src="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/RADVT.Player.y4s4_overview.png" class="lazyload placeholder" data-srcset="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/RADVT.Player.y4s4_overview.png" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="R2SI2020 CGI"></p>
+<p><img src="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/RADVT.Menu.Fileinfo.png" class="lazyload placeholder" data-srcset="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/RADVT.Menu.Fileinfo.png" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="Bik Info"></p>
+<p>&emsp;&emsp;如果你曾经研究过拆迁的文件结构, 会发现所有CGI其实都存储在RAD Video Tools打包的.bik视频文件里, 而文件本身则位于拆迁目录里的videos文件夹中. 文件没有加密, 具体编码封装工具据RAD VT报告称是Bink 2. 这样的bik文件去<a target="_blank" rel="noopener" href="http://www.radgametools.com/">RAD官网</a>下载一套<a target="_blank" rel="noopener" href="http://www.radgametools.com/bnkdown.htm">工具</a>就能打开. 在2018年Outbreak TTS时, 我就是靠这个工具得以提前12小时看到了不同任务的序言CG.</p>
+<p><img src="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/RADVT.Menu.Main.png" class="lazyload placeholder" data-srcset="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/RADVT.Menu.Main.png" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="RAD Main Menu"></p>
+<h4 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h4><ul>
+<li>RAD Video Tools    由RAD Game Tools开发的专有视频处理工具, 可处理Bink及Smack格式视频    下载地址: <a target="_blank" rel="noopener" href="http://www.radgametools.com/bnkdown.htm">Bink Downloads</a></li>
+</ul>
+<h4 id="使用RAD-Video-Tools解包"><a href="#使用RAD-Video-Tools解包" class="headerlink" title="使用RAD Video Tools解包"></a>使用RAD Video Tools解包</h4><p>&emsp;&emsp;RAD Video Tools用来解包相当简单, 一般来说只需打开RAD VT, 在选中想解包的CG后点击”Convert to……”按钮, 最后选择输出格式、确定输出路径就好了. 如果需要直接转为视频则只能输出avi, 编码也只能选未压缩. 不过众所周知, 未压缩的avi视频相当大, 如果您只是需要分享则最好输出exe, 输出文件大小和源文件几乎一致. (我猜是把一个播放器和bik打包在一起了)</p>
+<p><img src="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/RADVT.Menu.Convert.png" class="lazyload placeholder" data-srcset="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/RADVT.Menu.Convert.png" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="RAD Convert Menu"></p>
+<p><img src="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/RADVT.Menu.SetCodec.png" class="lazyload placeholder" data-srcset="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/RADVT.Menu.SetCodec.png" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="RAD Convert Select Codec"></p>
+<p><img src="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/RADVT.Convert.Processing.png" class="lazyload placeholder" data-srcset="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/RADVT.Convert.Processing.png" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="RAD Converting"></p>
+<p><img src="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/RADVT.Convert.Done.png" class="lazyload placeholder" data-srcset="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/RADVT.Convert.Done.png" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="RAD Converted"></p>
+<p><img src="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/RADVT.Menu.AdvancedPlay.png" class="lazyload placeholder" data-srcset="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/RADVT.Menu.AdvancedPlay.png" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="RAD Advanced Play Menu"></p>
+<p>&emsp;&emsp;你问能不能用现代的编码器? 醒醒, Bink 1不支持外部编码器, 而现代的Bink 2 SDK是付费、商业用的……</p>
+<p>&emsp;&emsp;”那其它内置的编码器不能用🐎?” 在, 看看关于? 上世纪的编码器您敢用? 即便使用, 输出的文件也会有一车问题. 是FFmpeg重新编码不香吗? 但这个我就不赘述了.</p>
+<p><img src="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/RADVT.GrandpaCodec.png" class="lazyload placeholder" data-srcset="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/RADVT.GrandpaCodec.png" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="RAD Grandpa Codec"></p>
+<p>&emsp;&emsp;不过R2SI 2020的序言CGI是个例外, 即便输出raw avi也会出现诡异的时间轴和采样问题. 但将每一帧输出为图片则没有问题……</p>
+<p><img src="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/R6S.CGI.y4s4_overview.RadTransGlitch.png" class="lazyload placeholder" data-srcset="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/R6S.CGI.y4s4_overview.RadTransGlitch.png" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="RAD Weird Ouput"></p>
+<p>&emsp;&emsp;鬼知道未来还会不会出现这种问题, 而且方便传播的视频谁不爱呢? 因此我认为需要一个备用方案, 所以该FFmpeg登场了.</p>
+<h4 id="令RAD-VT输出每一帧为图片-并使用FFmpeg将图片编码为视频"><a href="#令RAD-VT输出每一帧为图片-并使用FFmpeg将图片编码为视频" class="headerlink" title="令RAD VT输出每一帧为图片, 并使用FFmpeg将图片编码为视频"></a>令RAD VT输出每一帧为图片, 并使用FFmpeg将图片编码为视频</h4><p>&emsp;&emsp;(我没有空间和时间再演示一次R2SI 2020的CGI解包打包了, 找了个Y5干员bundle解锁CGI权当示例, 反正操作完全一致</p>
+<p>&emsp;&emsp;首先通过RAD VT查看.bik视频的帧率(File Info), 要是和整数很接近的小数的话四舍五入到整数并记住它. (这样的帧数其实是个历史包袱, 感兴趣的话可以观看<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1kE411c7yZ">影视飓风的视频</a>)</p>
+<p>&emsp;&emsp;接下来使用RAD VT的转换功能, 设置RAD VT的输出为png以保持无损, 选好输出目录与输出名字, 开始转换. 视频的每一帧将自动输出为png图片, 并在文件名最后自动加上帧数号(帧数号含前缀0).</p>
+<p><img src="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/RADVT.Output.Pics.png" class="lazyload placeholder" data-srcset="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/RADVT.Output.Pics.png" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="RAD Pic Output List"></p>
+<p>&emsp;&emsp;假定你已经配置好了FFmpeg, 可以使用终端/命令行调用. 我们只需要调用ffmpeg/ffmpeg.exe</p>
+<p>&emsp;&emsp;打开终端/命令行, 执行以下命令:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">(ffmpeg程序路径) -framerate (源文件帧率) -i (图片位置)/(输出文件名)%(最大帧数位数)d.png -c:v libx264 -preset veryslow -crf 17 -tune film -r (源文件帧率) (输出路径)/(输出文件名, 含扩展名)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>-framerate指定了输入文件被看待的帧率, -i指定了输入文件, -c:v指定了输出视频的编码器, -crf指定了输出质量, -r指定了输出文件的帧率.</p>
+</li>
+<li><p>文件名中的通配符与C/C++中scanf函数的参数一致.</p>
+</li>
+<li><p>如有Intel/Nvidia/AMD的可编码视频的GPU, 可将编码器换为h264_qsv/h264_nvenc/h264_amf, 相应地输出文件质量会有所下降.</p>
+</li>
+<li><p>-preset 为预设, veryfast/fast牺牲质量换取时间, slower/veryslow牺牲时间换取质量. 时间越短, 输出文件大小越大, 质量越差, 反之亦然. 需要其它预设请自行查阅FFmpeg手册.</p>
+</li>
+<li><p>-crf 取值0-51, 17/18为视觉无损压缩. 如果希望降低输出大小可适当增加, 当然质量会相应地有所下降.</p>
+</li>
+<li><p>-tune 可针对场景调节编码, 优化图像质量. 由于拆迁所有CGI全为写实渲染, 建议选择film.</p>
+</li>
+<li><p>以上使用了目前最流行的H.264编码, 需要H.265将上述编码器名称中的264换为265即可. 其它编码如VP9, AV1请自行探索. 注意, 不是所有编码器都支持以上微调选项!</p>
+</li>
+<li><p>建议输出mp4/flv/mkv, 方便后期添加声音.</p>
+</li>
+<li><p>根据实际情况替换括号(包括括号本身)的内容.</p>
+</li>
+</ul>
+<p>&emsp;&emsp;以我举的样例为例, 命令为:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">./ffmpeg.exe -framerate 30 -i ./tutor/y5s1_opsunlock_bundle_dynamic%3d.png -c:v libx264 -crf 17 -r 30 ./y5s1_opsunlock_bundle_dynamic.mp4</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;这里是运行结果:</p>
+<p><img src="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/FFmpeg.Encoding.png" class="lazyload placeholder" data-srcset="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/FFmpeg.Encoding.png" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="FFmpeg Encoding"></p>
+<p><img src="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/FFmpeg.Done.png" class="lazyload placeholder" data-srcset="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/FFmpeg.Done.png" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="FFmpeg Done"></p>
+<p>&emsp;&emsp;如果操作过程中不出错, 成品应该会出现在你指定的位置.</p>
+<p>&emsp;&emsp;下面便是是成品. 注意, 为了能塞进CDN, 我把成品转为了gif并降低了分辨率和帧率.</p>
+<p><img src="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/R6S.CGI.y5s1_opsunlock_bundle_dynamic.360P10FPS.gif" class="lazyload placeholder" data-srcset="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/R6S.CGI.y5s1_opsunlock_bundle_dynamic.360P10FPS.gif" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="y5s1_opsunlock_bundle_dynamic"></p>
+<p>&emsp;&emsp;如需添加音轨, 再在第一个-i后添加另一个-i开关并输入音频, 接着对音频使用copy编码就行了. 其它高级玩法请自行查阅FFmpeg手册.</p>
+<h3 id="声音"><a href="#声音" class="headerlink" title="声音"></a>声音</h3><p>&emsp;&emsp;在Y0至Y5S2钢铁洪流赛季, 拆迁的声音使用了Audiokinect Wwise套件, 并被打包在拆迁根目录下的sounddata目录的子目录中, 扩展名为.pck</p>
+<p>&emsp;&emsp;从Y5S3暗影之遗开始, 育碧将声音包改用AnvilNext封包, 针对pck的方法自此开始不再适用. 目前已有对新格式文件的研究, 将来将会持续跟进.</p>
+<h4 id="文件信息-1"><a href="#文件信息-1" class="headerlink" title="文件信息"></a>文件信息</h4><p>&emsp;&emsp;.pck文件有多种命名方式:</p>
+<ul>
+<li>sound_sfx              存储各种音效, 大多为枪声/物件声.</li>
+<li>sound_sfx_bootstrap    存储赛季/活动音乐(主题曲)、地图音乐与部分UI/氛围音效.</li>
+<li>sound_sfx_playgo       存储情境、情境/干员CGI音乐与部分UI/氛围音效</li>
+<li>sound_sfx_maps         存储地图环境音与地图内物件声音.</li>
+<li>sound_sfx_events       存储活动所使用的特殊音效.</li>
+<li>sound_sfx_cgi          存储CGI使用的音乐.</li>
+<li>sound_(语言缩写)        存储对应语言的语音.</li>
+<li>及以上格式的组合, 等.</li>
+</ul>
+<p>&emsp;&emsp;这里是Y5S1.0文件列表示例:</p>
+<p><img src="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/R6S.Y5S1_0.sounddata.png" class="lazyload placeholder" data-srcset="https://cdn.infi.wang/pic/blog/r6s-datamine-guide/R6S.Y5S1_0.sounddata.png" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="Y5S1.0 Sounddata"></p>
+<p>&emsp;&emsp;将.pck拆开后会发现子文件有四种扩展名. 这里给出对应编码和主要存储内容:</p>
+<ul>
+<li>.wwise    为Wwise Vorbis RIFF编码的有损声音文件, 几乎什么都存储(例如赛季主题曲, 地图主题音乐, 菜单BGM、按钮音效)</li>
+<li>.lwav     为Wwise IMA ADPCM编码的无损声音文件, 存储部分地图/物件音效</li>
+<li>.at3      为Wwise PCM编码的无损声音文件, 寥寥无几</li>
+<li>.pnk      为包含文件内部名称及部分声音子文件的包  <del>禁止套娃</del></li>
+</ul>
+<p>&emsp;&emsp;在Y4的某次更新中, .pnk文件不再存储声音的内部名称, 使用现有工具/脚本解当前版本游戏的包, 所得的对应声音的文件名将会变为相应文件在原包中的16位offset地址!</p>
+<h4 id="工具-1"><a href="#工具-1" class="headerlink" title="工具"></a>工具</h4><p><strong><em>以下内容较为硬核, 不建议普通玩家轻易尝试. 而且由于我时间不足, 以下教程仅为粗略指导, 若有无法复现情况的请认真阅读相应工具的帮助文档, 进行Debug, 并前往相应工具来源论坛求助. 如果未来有时间, 我会对下述内容进行对普通人更友好的完善.</em></strong></p>
+<p>&emsp;&emsp;Wwise在游戏工业界已经使用多年, 即便官方从未支持解包, 民间工具也已相当完善. 这里列举我所使用的工具.</p>
+<p>&emsp;&emsp;下述工具均已上传至我的下载站. <a target="_blank" rel="noopener" href="https://dl.infi.wang/R6SFiles/Tools/">infiDownloadSite/R6SFiles/Tools</a></p>
+<h5 id="手动工具"><a href="#手动工具" class="headerlink" title="手动工具"></a>手动工具</h5><ul>
+<li>QuickBMS  通用文件处理引擎, 为一脚本解释器. 由Luigi Auriemma开发, 开源, 协议未知.  主页: <a target="_blank" rel="noopener" href="https://aluigi.altervista.org/quickbms.htm">Luigi Auriemma QuickBMS</a></li>
+<li>ww2ogg  Wwise Vorbis RIFF/RIFX编码声音文件转ogg Vorbis声音文件工具, 用于转换.wwise文件.  由hcs(Adam Gashlin)开发, 开源, 使用BSD Clause-3协议.  GitHub仓库: <a target="_blank" rel="noopener" href="https://github.com/hcs64/ww2ogg">hcs64/ww2ogg</a></li>
+<li>wwise_ima_adpcm  Wwise IMA ADPCM编码声音文件与PCM声音文件互转工具, 用于转换.lwav文件.  由Zwagoth开发, 未找到原始下载源.</li>
+<li>revorb  ogg Vorbis音频granule_position修复工具, 用于修复ww2ogg输出.  由Yirkha(Jiri Hruska)开发, 开源, 使用MIT协议.  原发布贴: <a target="_blank" rel="noopener" href="https://web.archive.org/web/20150619030401/https://hydrogenaud.io/forums/lofiversion/index.php/t64328.html">Can’t play vorbis</a>  源代码: <a target="_blank" rel="noopener" href="https://web.archive.org/web/20150619030401/http://yirkha.fud.cz/progs/foobar2000/revorb.cpp">revorb.cpp</a></li>
+<li>func_getTYPE.bms  使用启发式算法确定文件类型的QBMS脚本, 是多个QBMS脚本的依赖, 作者为XeNTaX论坛的AlphaTwentyThree.</li>
+<li>pck_AKPK_extractor.bms  用于解包.pck文件的QBMS脚本, 作者同为XeNTaX论坛的AlphaTwentyThree.</li>
+<li>bnk_extractor.bms  用于解包.bnk文件的QBMS脚本, 作者依然是XeNTaX论坛的AlphaTwentyThree.</li>
+<li>wwise_pcm_decoder.bms  Wwise PCM编码声音文件转PCM声音文件QBMS脚本, 用于转换.at3文件.  作者未知.</li>
+</ul>
+<h5 id="自动工具"><a href="#自动工具" class="headerlink" title="自动工具"></a>自动工具</h5><p><strong><em>One tool to Rule’em all</em></strong></p>
+<ul>
+<li>Tom Clancy’s Rainbow Six Siege Sound Extractor  R6S声音文件解包工具, 作者为XeNTaX论坛的FatalBulletHit.  开源, 协议未知. 本质为Windows CMD脚本与Powershell脚本, 将上述手动工具解包过程自动化.  原发布贴: <a target="_blank" rel="noopener" href="http://forum.xentax.com/viewtopic.php?p=140570#p140570">Tom Clancy’s Rainbow Six Siege Sound Extractor</a></li>
+</ul>
+<h5 id="使用手动工具解包"><a href="#使用手动工具解包" class="headerlink" title="使用手动工具解包"></a>使用手动工具解包</h5><p>&emsp;&emsp;大多数工具按照相应–help和文档进行操作即可.</p>
+<h5 id="使用自动工具解包"><a href="#使用自动工具解包" class="headerlink" title="使用自动工具解包"></a>使用自动工具解包</h5><p>&emsp;&emsp;从源站下载bat, 执行, 完结撒花(</p>
+<p>&emsp;&emsp;有以下几个坑:</p>
+<ul>
+<li>Powershell版本不应低于Powershell 4</li>
+<li>bat脚本其实只是核心Powershell脚本的Bootstrapper, 建议在实际使用时直接从Powershell启动ps1脚本, 否则容易出现像是文件解不出来、解出AudioKinect文件不转换甚至都解好转换完毕了还能删歪来的迷惑行为.</li>
+<li>工具默认从注册表读取Uplay版本的安装地址. 如果你用的是Steam / Origin / 其它平台(包括破解版 / 备份), 记得修改脚本中的地址定义变量. 注意符号转义行为!</li>
+<li>脚本默认使用Powershell的Test-Connection函数对<a target="_blank" rel="noopener" href="http://www.google.com/">www.google.com</a> 测试网络连通性, 若不通脚本则会罢工, 而且在国内即便开了小飞机也有可能出现奇妙的问题. 建议全文搜索, 将 <a target="_blank" rel="noopener" href="http://www.google.com/">www.google.com</a> 替换成国内可ping地址. 我个人使用的是 <a target="_blank" rel="noopener" href="http://www.miui.com/">www.miui.com</a> . 当然, 要是您的网络无法下载脚本所需的相应手动工具, 自然也无法解包.</li>
+<li>建议打开-Debug开关, 时刻准备好debug.</li>
+<li>只要你在工具内选择解相应格式的包, 所有对应格式的包都会被解包、转换. 对于pck原包来说, 其实工具只是识别并解”游戏文件夹/sounddata/pc”内的所有pck包文件. 如果您只想解某一特定的包, 可以将不想要的文件剪切走; 或者干脆新建个文件结构和游戏目录一致的”假”文件夹, 把想解的包粘贴进去, 再把假游戏文件夹喂给脚本就行了.</li>
+<li>原文件内小文件众多, IOPS压力会很大, 解包输出也大的离谱. 建议准备好声音文件大小两倍左右的空间, 放在SSD上跑. 个人解Y4S4时程序在eMMC USB盘上跑了15个小时, 人都等傻了.</li>
+</ul>
+<h2 id="Happy-Hacking"><a href="#Happy-Hacking" class="headerlink" title="Happy Hacking!"></a>Happy Hacking!</h2>
   
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>Licensed under CC BY-NC-SA 4.0</p>
+
+              
+            
+              
+                <p>Permanent Link: <a href=http://infi.wang/posts/2020/03/r6s-datamine-guide.zh/>http://infi.wang/posts/2020/03/r6s-datamine-guide.zh/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
   
   
     
@@ -425,7 +598,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-27T07:21:43+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-27T07:21:44+00:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>Updated On: Dec 27, 2020</p>
@@ -436,6 +609,9 @@
       
         
           
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%B8%B8%E6%88%8F/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>游戏</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%BD%A9%E8%99%B9%E5%85%AD%E5%8F%B7/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>彩虹六号</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%80%86%E5%90%91/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>逆向</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%95%99%E7%A8%8B/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>教程</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/RAD-Video-Tools/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>RAD Video Tools</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/QuickBMS/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>QuickBMS</p></a></div>
+
 
         
       
@@ -451,6 +627,23 @@
   
   
 
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/posts/2020/12/december-23rd.zh/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>十二月二十三日</p>
+          <p class='content'>12345infi@infiSurfaceGo2 ~ &gt; dateWednesday, December 23, 2020 11:39:01 PMinfi@infiSurfaceGo2 ~...</p>
+        </a>
+      
+      
+        <a class='next' href='/posts/2019/12/his-oi-story.zh/'>
+          <p class='title'>他与OI<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>
+
+&emsp;&emsp;西西佛斯因恼怒了神祇, 被罚以一项永无止歇的苦刑: 将一块大石头从奥林帕斯山下推到山上. 但由于诅咒的力量, 巨石抵达山顶的刹那, 就会自动滚落到山下, 周而复始. ...</p>
+        </a>
+      
+    </div>
   
 </article>
 
@@ -472,6 +665,29 @@
 </div>
 <aside class='l_side'>
   
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>Table of Contents</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%98%E8%B5%B7"><span class="toc-text">缘起</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E5%8F%8A%E8%A7%A3%E5%8C%85"><span class="toc-text">分析及解包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CGI"><span class="toc-text">CGI</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF"><span class="toc-text">文件信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7"><span class="toc-text">工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8RAD-Video-Tools%E8%A7%A3%E5%8C%85"><span class="toc-text">使用RAD Video Tools解包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A4RAD-VT%E8%BE%93%E5%87%BA%E6%AF%8F%E4%B8%80%E5%B8%A7%E4%B8%BA%E5%9B%BE%E7%89%87-%E5%B9%B6%E4%BD%BF%E7%94%A8FFmpeg%E5%B0%86%E5%9B%BE%E7%89%87%E7%BC%96%E7%A0%81%E4%B8%BA%E8%A7%86%E9%A2%91"><span class="toc-text">令RAD VT输出每一帧为图片, 并使用FFmpeg将图片编码为视频</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A3%B0%E9%9F%B3"><span class="toc-text">声音</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF-1"><span class="toc-text">文件信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7-1"><span class="toc-text">工具</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E5%B7%A5%E5%85%B7"><span class="toc-text">手动工具</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%B7%A5%E5%85%B7"><span class="toc-text">自动工具</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%89%8B%E5%8A%A8%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%8C%85"><span class="toc-text">使用手动工具解包</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%87%AA%E5%8A%A8%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%8C%85"><span class="toc-text">使用自动工具解包</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Happy-Hacking"><span class="toc-text">Happy Hacking!</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
 
 </aside>
 
@@ -484,8 +700,8 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="彩虹六号：围攻 CGI与PCK声音解包指南";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 

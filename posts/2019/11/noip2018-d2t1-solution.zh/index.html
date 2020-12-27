@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="en,zh-CN,default">
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>NOIP2018 Day2T1 题解 - infiBlog</title>
+  
+    <meta name="keywords" content="OI,算法,NOIP,搜索,DFS,剪枝,生成树,图论,树论">
+  
+
+  
+    <meta name="description" content="
+去年考场上本题考虑过多, 喜提60变20、1=变2=、省队变差8分, 草(砸电脑.gif
+
+本题解几乎全为代码, 请静下心阅读. 我相信我的代码的可读性还是很高的.">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="infiBlog" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+</head>
+
+<body>
+  
+
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='https://cdn.infi.wang/pic/infiIcon.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>~/posts/
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>~/categories/
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>~/tags/
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>~/archives/
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>~/about
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>~/posts/
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>~/categories/
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>~/tags/
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>~/archives/
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>~/about
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div id="l_body">
+    <div id="l_cover">
+  
+    
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg=""></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+      <img no-lazy class='logo' src='https://cdn.infi.wang/pic/infiLogo.png'/>
+    
+    
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+          
+            <a href="/"
+              
+              
+              id="home">
+              <i class='fas fa-rss fa-fw'></i><p>ls ~/posts/</p>
+            </a>
+          
+            <a href="/categories/"
+              
+              
+              id="categories">
+              <i class='fas fa-folder-open fa-fw'></i><p>ls ~/categories/</p>
+            </a>
+          
+            <a href="/archives/"
+              
+              
+              id="archives">
+              <i class='fas fa-archive fa-fw'></i><p>ls ~/archives/</p>
+            </a>
+          
+            <a target="_blank" rel="noopener" href="https://dl.infi.wang"
+              
+              
+              id="https:dlinfiwang">
+              <i class='fas fa-file-download fa-fw'></i><p>curl dl.infi</p>
+            </a>
+          
+            <a href="/friends/"
+              
+              
+              id="friends">
+              <i class='fas fa-link fa-fw'></i><p>ls ~/friends/</p>
+            </a>
+          
+            <a href="/about/"
+              
+              
+              id="about">
+              <i class='fas fa-info-circle fa-fw'></i><p>cat ~/about</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+    <div id='safearea'>
+      <div class='body-wrapper' id="pjax-container">
+        
+
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        NOIP2018 Day2T1 题解
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' target="_blank" href="https://infiwang.me" rel="nofollow noopener">
+    <img no-lazy src="https://cdn.infi.wang/pic/avatar/infiWang.png">
+    <p>infiWang</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/OI/">OI</a><span class="sep"></span><a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>Published on: Nov 12, 2019</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="NOIP2018 Day2T1 题解" data-path="/posts/2019/11/noip2018-d2t1-solution.zh/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        Views
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  <p><img src="https://cdn.infi.wang/pic/blog/noip2018-d2t1-solution/brutalForceTLE.png" class="lazyload placeholder" data-srcset="https://cdn.infi.wang/pic/blog/noip2018-d2t1-solution/brutalForceTLE.png" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="initalResult"></p>
+<p>去年考场上本题考虑过多, 喜提60变20、1=变2=、省队变差8分, 草(砸电脑.gif</p>
+<hr>
+<p><strong>本题解几乎全为代码, 请静下心阅读. 我相信我的代码的可读性还是很高的.</strong></p>
+<a id="more"></a>
+
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><img src="https://cdn.infi.wang/pic/blog/noip2018-d2t1-solution/NOIP2018.D2T1.png" class="lazyload placeholder" data-srcset="https://cdn.infi.wang/pic/blog/noip2018-d2t1-solution/NOIP2018.D2T1.png" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="NOIP2018.D2T1"></p>
+<p><img src="https://cdn.infi.wang/pic/blog/noip2018-d2t1-solution/NOIP2018.D2T1.Datarange.png" class="lazyload placeholder" data-srcset="https://cdn.infi.wang/pic/blog/noip2018-d2t1-solution/NOIP2018.D2T1.Datarange.png" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="Datarange"></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>&emsp;&emsp;回到正题. 首先观察数据. n = 5000, 所以暴力就好了. 我在考场上用邻接矩阵都过了树的subtask.</p>
+<p>&emsp;&emsp;现在讨论各个subtask的情况.</p>
+<h3 id="n-m-1"><a href="#n-m-1" class="headerlink" title="n = m - 1"></a>n = m - 1</h3><p>&emsp;&emsp;明显, 此时的图为一棵树. 只需以出边到达点字典序从小到大进行一次不回溯的DFS(树生成), 再判断生成树的字典序即可; 复杂度$\Theta \left ( N \right )$.</p>
+<p>&emsp;&emsp;以下为本人去年此subtask的去锅代码.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxN = <span class="number">5000</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,current;</span><br><span class="line"><span class="keyword">bool</span> isFinal;</span><br><span class="line"><span class="keyword">int</span> minimalSet[<span class="number">1</span> + maxN];</span><br><span class="line"><span class="keyword">bool</span> isCityVisited[<span class="number">1</span> + maxN];</span><br><span class="line"><span class="keyword">bool</span> roadIndex[<span class="number">1</span> + maxN][<span class="number">1</span> + maxN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">travel</span><span class="params">(<span class="keyword">int</span> nowCity)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(isFinal)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	current++;</span><br><span class="line">	minimalSet[current] = nowCity;</span><br><span class="line">	isCityVisited[nowCity] = <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">if</span>(current == n)</span><br><span class="line">	&#123;</span><br><span class="line">		minimalSet[<span class="number">0</span>] = nowCity;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;%i &quot;</span>,minimalSet[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		isFinal = <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(isCityVisited[i] == <span class="literal">false</span></span><br><span class="line">		&amp;&amp;(roadIndex[nowCity][i] || roadIndex[i][nowCity]))</span><br><span class="line">		&#123;</span><br><span class="line">			travel(i);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= m;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> u,v;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%i %i&quot;</span>,&amp;u,&amp;v);</span><br><span class="line">		roadIndex[u][v] = <span class="literal">true</span>;</span><br><span class="line">		roadIndex[v][u] = <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	travel(<span class="number">1</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="n-m"><a href="#n-m" class="headerlink" title="n = m"></a>n = m</h3><p>&emsp;&emsp;相应地, 这种情况下的图为有且只有一条环的图.</p>
+<p>&emsp;&emsp;去年看到这就放弃了, 毕竟当时连存图都是凭印象瞎搞的. 当然, 现在看来无非两种方式: 找边, 找环. 这里从简(其实还是不会), 只讨论暴力断边的方案.</p>
+<p>&emsp;&emsp;这样一张图(基环树/图)有这样的性质: 断环上的任意一条边, 图就变成一棵树. 那么就有以下暴力断开每一条边再进行树生成并判断字典序的代码.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> u, v;</span><br><span class="line">	<span class="keyword">bool</span> w;</span><br><span class="line"></span><br><span class="line">	Edge(<span class="keyword">int</span> U = <span class="number">0</span>, <span class="keyword">int</span> V = <span class="number">0</span>, <span class="keyword">bool</span> W = <span class="literal">true</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		(*<span class="keyword">this</span>).u = U, (*<span class="keyword">this</span>).v = V, (*<span class="keyword">this</span>).w = W;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">std</span>::swap((*<span class="keyword">this</span>).u, (*<span class="keyword">this</span>).v);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function">Edge <span class="title">getReversed</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> Edge((*<span class="keyword">this</span>).v, (*<span class="keyword">this</span>).u, (*<span class="keyword">this</span>).w);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	Edge <span class="keyword">operator</span> = (<span class="keyword">const</span> Edge&amp; inEdge)</span><br><span class="line">	&#123;</span><br><span class="line">		(*<span class="keyword">this</span>).u = inEdge.u, (*<span class="keyword">this</span>).v = inEdge.v, (*<span class="keyword">this</span>).w = inEdge.w;</span><br><span class="line">		<span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br><span class="line">emptyEdge;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(Edge E, Edge e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> E.v &lt; e.v;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">copy</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span>* ori, <span class="keyword">int</span>* des)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) des[i] = ori[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">bool</span> stat, <span class="keyword">bool</span>* des)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) des[i] = stat;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">isMinDic</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span>* dicOri, <span class="keyword">int</span>* dicCmp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(dicCmp[i] != dicOri[i])</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(dicCmp[i] &gt; dicOri[i]) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">			<span class="keyword">if</span>(dicCmp[i] &lt; dicOri[i]) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">setEdge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">bool</span> w, <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Edge&gt;* graph)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Edge&gt;::iterator it = graph[u].begin(); it != graph[u].end(); it++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>((*it).v == v)</span><br><span class="line">		&#123;</span><br><span class="line">			(*it).w = w;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> now, <span class="keyword">int</span>&amp; depth, <span class="keyword">bool</span>* isVisited, <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Edge&gt;* graph, <span class="keyword">int</span>* dic)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	isVisited[now] = <span class="literal">true</span>;</span><br><span class="line">	dic[depth++] = now;</span><br><span class="line">	<span class="keyword">for</span>(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Edge&gt;::iterator it = graph[now].begin(); it != graph[now].end(); it++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(!isVisited[(*it).v] &amp;&amp; (*it).w)</span><br><span class="line">			DFS((*it).v, depth, isVisited, graph, dic);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">subtask</span><span class="params">(<span class="keyword">int</span> n, <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Edge&gt;* graph, <span class="keyword">bool</span>* isVisited, <span class="keyword">int</span>* dic)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">1</span>;k &lt;= n;k++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Edge&gt;::iterator it = graph[k].begin(); it != graph[k].end(); it++)</span><br><span class="line">		&#123;</span><br><span class="line">			(*it).w = <span class="literal">false</span><span class="comment">/*, setEdge((*it).v, (*it).u, false, graph)*/</span>;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> tDic[<span class="number">1</span> + n]; tDic[<span class="number">0</span>] = <span class="number">0</span>; <span class="keyword">int</span> depth = <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;tDic[i] = <span class="number">5000</span> + <span class="number">1</span>; isVisited[i] = <span class="literal">false</span>;&#125;</span><br><span class="line"></span><br><span class="line">			DFS(<span class="number">1</span>, depth, isVisited, graph, tDic);</span><br><span class="line">			<span class="keyword">if</span>(isMinDic(n, dic, tDic)) copy(n, tDic, dic);</span><br><span class="line"></span><br><span class="line">			(*it).w = <span class="literal">true</span><span class="comment">/*, setEdge((*it).v, (*it).u, true, graph)*/</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, m;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Edge&gt; graph[<span class="number">1</span> + n];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> u, v;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%i %i&quot;</span>, &amp;u, &amp;v);</span><br><span class="line">		graph[u].push_back(Edge(u, v));</span><br><span class="line">		graph[v].push_back(Edge(v, u));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">std</span>::sort(graph[i].begin(), graph[i].end(), cmp);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> dic[<span class="number">1</span> + n]; <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;dic[i] = <span class="number">5000</span> + <span class="number">1</span>;&#125; dic[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">bool</span> isVisited[<span class="number">1</span> + n]; <span class="built_in">memset</span>(isVisited, <span class="literal">false</span>, <span class="keyword">sizeof</span>(isVisited));</span><br><span class="line">	<span class="keyword">int</span> depth = <span class="number">1</span>;</span><br><span class="line">	n != m ? DFS(<span class="number">1</span>, depth, isVisited, graph, dic)</span><br><span class="line">		   : subtask(n, graph, isVisited, dic);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%i &quot;</span>, dic[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.infi.wang/pic/blog/noip2018-d2t1-solution/brutalForceTLE.png" class="lazyload placeholder" data-srcset="https://cdn.infi.wang/pic/blog/noip2018-d2t1-solution/brutalForceTLE.png" srcset="http://cdn.infi.wang/pic/blog/assets/loading.gif" alt="TLE"></p>
+<p>&emsp;&emsp;我交了, 吸氧了, 多50ms T了, 那咋办嘛 QAQ</p>
+<p>&emsp;&emsp;很明显, 这个简单暴力方法的复杂度为$\Theta\left(N^{2}\right)$, 所以T了也不奇怪.</p>
+<h4 id="剪枝"><a href="#剪枝" class="headerlink" title="剪枝"></a>剪枝</h4><p>&emsp;&emsp;相应地, 这时就需要剪枝了.</p>
+<p>&emsp;&emsp;这里只讲最优化剪枝. 当当前搜索所得序列劣于已得最佳序列时就可选择剪枝. 修改上述程序, 最终得到以下代码, 复杂度$\Omega\left(n\right)$, $O\left(N^{2}\right)$.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> u, v;</span><br><span class="line">	<span class="keyword">bool</span> w;</span><br><span class="line"></span><br><span class="line">	Edge(<span class="keyword">int</span> U = <span class="number">0</span>, <span class="keyword">int</span> V = <span class="number">0</span>, <span class="keyword">bool</span> W = <span class="literal">true</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		(*<span class="keyword">this</span>).u = U, (*<span class="keyword">this</span>).v = V, (*<span class="keyword">this</span>).w = W;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">std</span>::swap((*<span class="keyword">this</span>).u, (*<span class="keyword">this</span>).v);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function">Edge <span class="title">getReversed</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> Edge((*<span class="keyword">this</span>).v, (*<span class="keyword">this</span>).u, (*<span class="keyword">this</span>).w);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	Edge <span class="keyword">operator</span> = (<span class="keyword">const</span> Edge&amp; inEdge)</span><br><span class="line">	&#123;</span><br><span class="line">		(*<span class="keyword">this</span>).u = inEdge.u, (*<span class="keyword">this</span>).v = inEdge.v, (*<span class="keyword">this</span>).w = inEdge.w;</span><br><span class="line">		<span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br><span class="line">emptyEdge;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(Edge E, Edge e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> E.v &lt; e.v;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">copy</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span>* ori, <span class="keyword">int</span>* des)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) des[i] = ori[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">bool</span> stat, <span class="keyword">bool</span>* des)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) des[i] = stat;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">isMinDic</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span>* dicOri, <span class="keyword">int</span>* dicCmp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(dicCmp[i] != dicOri[i])</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(dicCmp[i] &gt; dicOri[i]) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">			<span class="keyword">if</span>(dicCmp[i] &lt; dicOri[i]) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">setEdge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">bool</span> w, <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Edge&gt;* graph)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Edge&gt;::iterator it = graph[u].begin(); it != graph[u].end(); it++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>((*it).v == v)</span><br><span class="line">		&#123;</span><br><span class="line">			(*it).w = w;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> now, <span class="keyword">int</span>&amp; depth, <span class="keyword">bool</span>* isVisited, <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Edge&gt;* graph, <span class="keyword">int</span>* dic, <span class="keyword">int</span>* cmpDic, <span class="keyword">bool</span>&amp; wasEqual, <span class="keyword">bool</span>&amp; isBestSolution, <span class="keyword">bool</span>&amp; notBestSolution)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(notBestSolution) <span class="keyword">return</span>;</span><br><span class="line">	isVisited[now] = <span class="literal">true</span>;</span><br><span class="line">	dic[depth] = now;</span><br><span class="line">	<span class="keyword">if</span>(wasEqual &amp;&amp; !isBestSolution)</span><br><span class="line">	&#123;</span><br><span class="line">		dic[depth] != cmpDic[depth] ? (dic[depth] &lt; cmpDic[depth] ? isBestSolution = <span class="literal">true</span> : <span class="literal">false</span>),</span><br><span class="line">									  (dic[depth] &gt; cmpDic[depth] ? notBestSolution = <span class="literal">true</span> : <span class="literal">false</span>),</span><br><span class="line">									  wasEqual = <span class="literal">false</span></span><br><span class="line">									: wasEqual = <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	depth++;</span><br><span class="line">	<span class="keyword">for</span>(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Edge&gt;::iterator it = graph[now].begin(); it != graph[now].end(); it++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(!isVisited[(*it).v] &amp;&amp; (*it).w)</span><br><span class="line">			DFS((*it).v, depth, isVisited, graph, dic, cmpDic, wasEqual, isBestSolution, notBestSolution);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">subtask</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span>&amp; depth, <span class="keyword">bool</span>* isVisited, <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Edge&gt;* graph, <span class="keyword">int</span>* dic, <span class="keyword">int</span>* resultDic, <span class="keyword">bool</span>&amp; wasEqual, <span class="keyword">bool</span>&amp; isBestSolution, <span class="keyword">bool</span>&amp; notBestSolution)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">1</span>;k &lt;= n;k++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Edge&gt;::iterator it = graph[k].begin(); it != graph[k].end(); it++)</span><br><span class="line">		&#123;</span><br><span class="line">			(*it).w = <span class="literal">false</span><span class="comment">/*, setEdge((*it).v, (*it).u, false, graph)*/</span>;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> tDic[<span class="number">1</span> + n];</span><br><span class="line">			tDic[<span class="number">0</span>] = <span class="number">0</span>, depth = <span class="number">1</span>, wasEqual = <span class="literal">true</span>, isBestSolution = <span class="literal">false</span>, notBestSolution = <span class="literal">false</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;tDic[i] = <span class="number">5000</span> + <span class="number">1</span>; isVisited[i] = <span class="literal">false</span>;&#125;</span><br><span class="line"></span><br><span class="line">			DFS(<span class="number">1</span>, depth, isVisited, graph, tDic, resultDic, wasEqual, isBestSolution, notBestSolution);</span><br><span class="line">			<span class="keyword">if</span>(isBestSolution) copy(n, tDic, resultDic);</span><br><span class="line"></span><br><span class="line">			(*it).w = <span class="literal">true</span><span class="comment">/*, setEdge((*it).v, (*it).u, true, graph)*/</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//freopen(&quot;in&quot;,&quot;r&quot;,stdin);</span></span><br><span class="line">	<span class="keyword">int</span> n, m;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Edge&gt; graph[<span class="number">1</span> + n];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> u, v;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%i %i&quot;</span>, &amp;u, &amp;v);</span><br><span class="line">		graph[u].push_back(Edge(u, v));</span><br><span class="line">		graph[v].push_back(Edge(v, u));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">std</span>::sort(graph[i].begin(), graph[i].end(), cmp);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> dic[<span class="number">1</span> + n]; <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;dic[i] = <span class="number">5000</span> + <span class="number">1</span>;&#125; dic[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">bool</span> isVisited[<span class="number">1</span> + n]; <span class="built_in">memset</span>(isVisited, <span class="literal">false</span>, <span class="keyword">sizeof</span>(isVisited));</span><br><span class="line">	<span class="keyword">int</span> depth = <span class="number">1</span>; <span class="keyword">bool</span> wasEqual = <span class="literal">true</span>, isBestSolution = <span class="literal">false</span>, notBestSolution = <span class="literal">false</span>;</span><br><span class="line">	n != m ? DFS(<span class="number">1</span>, depth, isVisited, graph, dic, dic, wasEqual, isBestSolution, notBestSolution)</span><br><span class="line">		   : subtask(n, depth, isVisited, graph, dic, dic, wasEqual, isBestSolution, notBestSolution);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%i &quot;</span>, dic[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>Licensed under CC BY-NC-SA 4.0</p>
+
+              
+            
+              
+                <p>Permanent Link: <a href=http://infi.wang/posts/2019/11/noip2018-d2t1-solution.zh/>http://infi.wang/posts/2019/11/noip2018-d2t1-solution.zh/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-27T07:21:44+00:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>Updated On: Dec 27, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/OI/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>OI</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%AE%97%E6%B3%95/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>算法</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/NOIP/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>NOIP</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%90%9C%E7%B4%A2/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>搜索</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/DFS/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>DFS</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%89%AA%E6%9E%9D/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>剪枝</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%94%9F%E6%88%90%E6%A0%91/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>生成树</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%9B%BE%E8%AE%BA/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>图论</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%A0%91%E8%AE%BA/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>树论</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/posts/2019/12/his-oi-story.zh/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>他与OI</p>
+          <p class='content'>
+
+&emsp;&emsp;西西佛斯因恼怒了神祇, 被罚以一项永无止歇的苦刑: 将一块大石头从奥林帕斯山下推到山上. 但由于诅咒的力量, 巨石抵达山顶的刹那, 就会自动滚落到山下, 周而复始. ...</p>
+        </a>
+      
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> Comments</p>
+    
+    <div id="gitalk-container"></div>
+
+  </article>
+
+
+
+
+
+  <script>
+  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.0/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    // 文章章节标题不能为 “MathJax” ，否则会报错。
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>Table of Contents</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3"><span class="toc-text">题解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#n-m-1"><span class="toc-text">n &#x3D; m - 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#n-m"><span class="toc-text">n &#x3D; m</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%AA%E6%9E%9D"><span class="toc-text">剪枝</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="NOIP2018 Day2T1 题解";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+</script>
+
+        
+      </div>
+      
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.6'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='360px'
+      server='netease'
+      type='playlist'
+      id='463954692'
+      list-folded='false'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+              <a href="mailto:infiwang@protonmail.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+              <a href="https://t.me/infiStuff"
+                class="social fab fa-telegram-plane flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+              <a href="https://discord.gg/3FEmDyR"
+                class="social fab fa-discord flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+              <a href="https://github.com/infiWang/"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+              <a href="https://steamcommunity.com/id/infiWang/"
+                class="social fab fa-steam-symbol flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        
+          <div><p><span id="lc-sv">Total views: <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">Visitors: <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+</div>
+        
+      
+    
+      
+        Use
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0" target="_blank" class="codename">Volantis</a>
+        as theme
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2017-2020 infiWang</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+  </div>
+  <div>
+    <script>
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css", window.volantis.loadcss);
+  
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script>
+      window.FPConfig = {
+        delay: 0,
+        ignoreKeywords: [],
+        maxRPS: 5,
+        hoverDelay: 25
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+  
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '463954692';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.6';
+  loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
+  // APlayer 需要在  MetingJS 之前加载
+  loadScript("")
+  window.volantis.LoadMetingJS=0
+  var checkAPlayer = setInterval(function () {
+    if (!window.APlayer) return
+    clearInterval(checkAPlayer)
+	if (!window.volantis.LoadMetingJS&&!window.MetingJSElement){
+	  window.LoadMetingJS=1
+      loadScript("")
+	  }
+  }, 2500)
+
+</script>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  function pjax_gitalk() {
+    if(!document.querySelectorAll("#gitalk-container")[0])return;
+
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+
+    if (document.getElementById('gitalk-container') != null) {
+      var gitalk = new Gitalk({
+        clientID: "0d1b5092fdd33eefb6ba",
+        clientSecret: "82d034c7ca648fcb04c9b7c72a5994882f18f08b",
+        repo: "infiWang.github.io",
+        owner: "infiWang",
+        admin: "infiWang",
+        id: path,
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      });
+      gitalk.render('gitalk-container');
+    }
+  }
+
+  $(function () {
+    pjax_gitalk();
+  });
+</script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/js/search/hexo.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+}
+</script>
+
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function () {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+
+
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'tF0dNJ0QnhrPkeCKuiadctpL-MdYXbMMI',
+    app_key: 'pRaAB1NfmJIsfzOVR5r45T39',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'http://infi.wang' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'http://infi.wang' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'http://infi.wang' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+  
+  <script src="https://cdn.infi.wang/js/dynRibbon.js" type="text/javascript"></script>
+
+
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#l_cover",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+       
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+	 
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+          }
+        
+        
+        
+        
+        
+          pjax_initCopyCode();
+        
+        
+        
+        
+          pjax_gitalk();
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+	  
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>
