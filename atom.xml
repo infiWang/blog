@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>infiBlog</title>
+  
+  <subtitle>See-through the barrier</subtitle>
+  <link href="http://infi.wang/atom.xml" rel="self"/>
+  
+  <link href="http://infi.wang/"/>
+  <updated>2020-12-26T10:18:48.723Z</updated>
+  <id>http://infi.wang/</id>
+  
+  <author>
+    <name>infiWang</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>十二月二十三日</title>
+    <link href="http://infi.wang/posts/2020/12/december-23rd.zh/"/>
+    <id>http://infi.wang/posts/2020/12/december-23rd.zh/</id>
+    <published>2020-12-23T23:46:34.000Z</published>
+    <updated>2020-12-26T10:18:48.723Z</updated>
+    
+    
+    <summary type="html">&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;infi@infiSurfaceGo2 ~ &amp;gt; date&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Wednesday, December 23, 2020 11:39:01 PM&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;infi@infiSurfaceGo2 ~ &amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.infi.wang/pic/blog/december-23rd/heartlake-nightview.jpeg&quot; alt=&quot;心湖夜景&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;去年此刻，我应该还在调整着这里的持续集成系统。整整一天前，我刚下课，和队友在图书馆会合。现在，我坐在宿舍楼下的自习室。敲下这行字的几十分钟后，咱就二十岁了。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="infi" scheme="http://infi.wang/categories/infi/"/>
+    
+    <category term="中文" scheme="http://infi.wang/categories/%E4%B8%AD%E6%96%87/"/>
+    
+    
+    <category term="infi" scheme="http://infi.wang/tags/infi/"/>
+    
+    <category term="随笔" scheme="http://infi.wang/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>彩虹六号：围攻 CGI与PCK声音解包指南</title>
+    <link href="http://infi.wang/posts/2020/03/r6s-datamine-guide.zh/"/>
+    <id>http://infi.wang/posts/2020/03/r6s-datamine-guide.zh/</id>
+    <published>2020-03-17T20:15:46.000Z</published>
+    <updated>2020-12-26T10:18:48.723Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;自Y5S3暗影之遗行动开始, 声音文件由PCK包变为了AnvilNext的Forge包. 本教程暂未对此做出更新&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.infi.wang/pic/blog/r6s-datamine-guide/R6S.CGI.y5s1_opsunlock_bundle_dynamic.360P10FPS.gif&quot; alt=&quot;y5s1_opsunlock_bundle_dynamic&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;包本身和部分解包后的文件已上传至我的下载站, 持续更新&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://dl.infi.wang/R6SFiles/&quot;&gt;infiDownloadSite/R6SFiles&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;本教程需要您有一定计算机基础&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="教程" scheme="http://infi.wang/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="中文" scheme="http://infi.wang/categories/%E4%B8%AD%E6%96%87/"/>
+    
+    <category term="游戏" scheme="http://infi.wang/categories/%E6%B8%B8%E6%88%8F/"/>
+    
+    <category term="彩虹六号" scheme="http://infi.wang/categories/%E5%BD%A9%E8%99%B9%E5%85%AD%E5%8F%B7/"/>
+    
+    <category term="逆向" scheme="http://infi.wang/categories/%E9%80%86%E5%90%91/"/>
+    
+    
+    <category term="游戏" scheme="http://infi.wang/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+    <category term="彩虹六号" scheme="http://infi.wang/tags/%E5%BD%A9%E8%99%B9%E5%85%AD%E5%8F%B7/"/>
+    
+    <category term="逆向" scheme="http://infi.wang/tags/%E9%80%86%E5%90%91/"/>
+    
+    <category term="教程" scheme="http://infi.wang/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="RAD Video Tools" scheme="http://infi.wang/tags/RAD-Video-Tools/"/>
+    
+    <category term="QuickBMS" scheme="http://infi.wang/tags/QuickBMS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>他与OI</title>
+    <link href="http://infi.wang/posts/2019/12/his-oi-story.zh/"/>
+    <id>http://infi.wang/posts/2019/12/his-oi-story.zh/</id>
+    <published>2019-12-01T13:15:49.000Z</published>
+    <updated>2020-12-26T10:18:48.723Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://cdn.infi.wang/pic/blog/his-oi-story/infiWangAndSF.jpg&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;西西佛斯因恼怒了神祇, 被罚以一项永无止歇的苦刑: 将一块大石头从奥林帕斯山下推到山上. 但由于诅咒的力量, 巨石抵达山顶的刹那, 就会自动滚落到山下, 周而复始. 西西佛斯永远没有完成使命的一天, 永远重复同样劳苦无望的命运……&lt;br&gt;&amp;emsp;&amp;emsp;然而有一天, 西西佛斯在搬运巨石的途中忽然觉得自己搬动巨石的每个动作都那么美: 他专注地观察着自己全力以赴的每个当下, 有了一种幸福感; 他全心享受这份苦役, 不再抱怨焦虑. 奇妙的事发生了: 诅咒竟然在这一刹那解除, 巨石不再滚回山下, 西西佛斯从永无休止的苦役中重获自由.&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="infi" scheme="http://infi.wang/categories/infi/"/>
+    
+    <category term="OI" scheme="http://infi.wang/categories/OI/"/>
+    
+    <category term="中文" scheme="http://infi.wang/categories/%E4%B8%AD%E6%96%87/"/>
+    
+    
+    <category term="infi" scheme="http://infi.wang/tags/infi/"/>
+    
+    <category term="随笔" scheme="http://infi.wang/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="OI" scheme="http://infi.wang/tags/OI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NOIP2018 Day2T1 题解</title>
+    <link href="http://infi.wang/posts/2019/11/noip2018-d2t1-solution.zh/"/>
+    <id>http://infi.wang/posts/2019/11/noip2018-d2t1-solution.zh/</id>
+    <published>2019-11-12T20:33:42.000Z</published>
+    <updated>2020-12-26T10:18:48.723Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://cdn.infi.wang/pic/blog/noip2018-d2t1-solution/brutalForceTLE.png&quot; alt=&quot;initalResult&quot;&gt;&lt;/p&gt;
+&lt;p&gt;去年考场上本题考虑过多, 喜提60变20、1=变2=、省队变差8分, 草(砸电脑.gif&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;本题解几乎全为代码, 请静下心阅读. 我相信我的代码的可读性还是很高的.&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="OI" scheme="http://infi.wang/categories/OI/"/>
+    
+    <category term="算法" scheme="http://infi.wang/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="OI" scheme="http://infi.wang/tags/OI/"/>
+    
+    <category term="算法" scheme="http://infi.wang/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="NOIP" scheme="http://infi.wang/tags/NOIP/"/>
+    
+    <category term="搜索" scheme="http://infi.wang/tags/%E6%90%9C%E7%B4%A2/"/>
+    
+    <category term="DFS" scheme="http://infi.wang/tags/DFS/"/>
+    
+    <category term="剪枝" scheme="http://infi.wang/tags/%E5%89%AA%E6%9E%9D/"/>
+    
+    <category term="生成树" scheme="http://infi.wang/tags/%E7%94%9F%E6%88%90%E6%A0%91/"/>
+    
+    <category term="图论" scheme="http://infi.wang/tags/%E5%9B%BE%E8%AE%BA/"/>
+    
+    <category term="树论" scheme="http://infi.wang/tags/%E6%A0%91%E8%AE%BA/"/>
+    
+  </entry>
+  
+</feed>
