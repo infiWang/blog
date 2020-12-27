@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://infi.wang/posts/2020/03/r6s-datamine-guide.zh/</loc>
-    
-    <lastmod>2020-12-27</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://infi.wang/posts/2020/12/december-23rd.zh/</loc>
     
     <lastmod>2020-12-27</lastmod>
@@ -24,6 +17,13 @@
   
   <url>
     <loc>http://infi.wang/posts/2019/11/noip2018-d2t1-solution.zh/</loc>
+    
+    <lastmod>2020-12-27</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://infi.wang/posts/2020/03/r6s-datamine-guide.zh/</loc>
     
     <lastmod>2020-12-27</lastmod>
     
