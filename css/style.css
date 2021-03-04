@@ -2268,6 +2268,9 @@ div.fancybox .image-caption:empty {
     border-radius: 2px;
   }
 }
+.l_header .aplayer-volume-wrap {
+  display: none !important;
+}
 .highlight {
   position: relative;
 }
@@ -4013,6 +4016,7 @@ article#comments p[ct] {
   margin-bottom: 1em;
   font-size: 1.125rem;
   color: var(--color-text);
+  font-weight: 600;
 }
 article#comments p[cst] {
   margin-top: 1em;
@@ -4888,9 +4892,10 @@ img.lazyload:not(.placeholder).loaded {
 }
 .snackbar-content .action a {
   margin: 4px;
+  cursor: pointer;
   color: #fff;
   display: inline-block;
-  padding: 0.8em 2em;
+  padding: 0.4em 2em;
   font-weight: 600;
   border-radius: 2px;
   border: 1px solid #fff;
