@@ -22,14 +22,14 @@
 
   <!-- 页面元数据 -->
   
-  <title>Category - infiBlog</title>
+  <title>Category - UNDEFINED REFERENCE</title>
   
 
   
 
   <!-- feed -->
   
-    <link rel="alternate" href="/atom.xml" title="infiBlog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="UNDEFINED REFERENCE" type="application/atom+xml">
   
 
   <!-- import meta -->
@@ -1156,7 +1156,7 @@ $(function () {
       // 请求 PV 并自增
       var pvCtn = document.querySelector('#lc-sv');
       if (pvCtn || enableIncr) {
-        var pvGetter = this.getRecord(Counter, 'http://infi.wang' + '/#lc-sv', 'Visits').then((record) => {
+        var pvGetter = this.getRecord(Counter, 'http://blog.infi.wang' + '/#lc-sv', 'Visits').then((record) => {
           incrArr.push(this.buildIncrement(record.objectId))
           var eles = document.querySelectorAll('#lc-sv #number');
           if (eles.length > 0) {
@@ -1174,7 +1174,7 @@ $(function () {
       // 请求 UV 并自增
       var uvCtn = document.querySelector('#lc-uv');
       if (uvCtn || enableIncr) {
-        var uvGetter = this.getRecord(Counter, 'http://infi.wang' + '/#lc-uv', 'Visitors').then((record) => {
+        var uvGetter = this.getRecord(Counter, 'http://blog.infi.wang' + '/#lc-uv', 'Visitors').then((record) => {
           var vuv = this.validUV();
           vuv && incrArr.push(this.buildIncrement(record.objectId))
           var eles = document.querySelectorAll('#lc-uv #number');
@@ -1196,7 +1196,7 @@ $(function () {
         for (i = 0; i < allPV.length; i++) {
           let pv = allPV[i];
           let title = pv.getAttribute('data-title');
-          var url = 'http://infi.wang' + pv.getAttribute('data-path');
+          var url = 'http://blog.infi.wang' + pv.getAttribute('data-path');
           if (url) {
             var viewGetter = this.getRecord(Counter, url, title).then((record) => {
               // 是当前页面就自增

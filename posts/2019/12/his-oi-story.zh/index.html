@@ -22,7 +22,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>他与OI - infiBlog</title>
+  <title>他与OI - UNDEFINED REFERENCE</title>
   
     <meta name="keywords" content="infi,随笔,OI">
   
@@ -35,7 +35,7 @@
 
   <!-- feed -->
   
-    <link rel="alternate" href="/atom.xml" title="infiBlog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="UNDEFINED REFERENCE" type="application/atom+xml">
   
 
   <!-- import meta -->
@@ -521,7 +521,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>Permanent Link: <a href=http://infi.wang/posts/2019/12/his-oi-story.zh/>http://infi.wang/posts/2019/12/his-oi-story.zh/</a></p>
+                <p>Permanent Link: <a href=http://blog.infi.wang/posts/2019/12/his-oi-story.zh/>http://blog.infi.wang/posts/2019/12/his-oi-story.zh/</a></p>
               
             
           </blockquote>
@@ -538,7 +538,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-30T16:18:57+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-30T16:22:06+00:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>Updated On: Mar 30, 2021</p>
@@ -1310,7 +1310,7 @@ $(function () {
       // 请求 PV 并自增
       var pvCtn = document.querySelector('#lc-sv');
       if (pvCtn || enableIncr) {
-        var pvGetter = this.getRecord(Counter, 'http://infi.wang' + '/#lc-sv', 'Visits').then((record) => {
+        var pvGetter = this.getRecord(Counter, 'http://blog.infi.wang' + '/#lc-sv', 'Visits').then((record) => {
           incrArr.push(this.buildIncrement(record.objectId))
           var eles = document.querySelectorAll('#lc-sv #number');
           if (eles.length > 0) {
@@ -1328,7 +1328,7 @@ $(function () {
       // 请求 UV 并自增
       var uvCtn = document.querySelector('#lc-uv');
       if (uvCtn || enableIncr) {
-        var uvGetter = this.getRecord(Counter, 'http://infi.wang' + '/#lc-uv', 'Visitors').then((record) => {
+        var uvGetter = this.getRecord(Counter, 'http://blog.infi.wang' + '/#lc-uv', 'Visitors').then((record) => {
           var vuv = this.validUV();
           vuv && incrArr.push(this.buildIncrement(record.objectId))
           var eles = document.querySelectorAll('#lc-uv #number');
@@ -1350,7 +1350,7 @@ $(function () {
         for (i = 0; i < allPV.length; i++) {
           let pv = allPV[i];
           let title = pv.getAttribute('data-title');
-          var url = 'http://infi.wang' + pv.getAttribute('data-path');
+          var url = 'http://blog.infi.wang' + pv.getAttribute('data-path');
           if (url) {
             var viewGetter = this.getRecord(Counter, url, title).then((record) => {
               // 是当前页面就自增
