@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>UNDEFINED REFERENCE</title>
+  <title>Temporal Aliasing</title>
   
-  <subtitle>Seek and find. </subtitle>
+  
   <link href="http://blog.infi.wang/atom.xml" rel="self"/>
   
   <link href="http://blog.infi.wang/"/>
-  <updated>2021-03-30T16:22:06.916Z</updated>
+  <updated>2024-09-19T04:03:08.610Z</updated>
   <id>http://blog.infi.wang/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://blog.infi.wang/posts/2020/12/december-23rd.zh/"/>
     <id>http://blog.infi.wang/posts/2020/12/december-23rd.zh/</id>
     <published>2020-12-23T23:46:34.000Z</published>
-    <updated>2021-03-30T16:22:06.916Z</updated>
+    <updated>2024-09-19T04:03:08.610Z</updated>
     
     
     <summary type="html">&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;infi@infiSurfaceGo2 ~ &amp;gt; date&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Wednesday, December 23, 2020 11:39:01 PM&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;infi@infiSurfaceGo2 ~ &amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -47,7 +47,7 @@
     <link href="http://blog.infi.wang/posts/2020/03/r6s-datamine-guide.zh/"/>
     <id>http://blog.infi.wang/posts/2020/03/r6s-datamine-guide.zh/</id>
     <published>2020-03-17T20:15:46.000Z</published>
-    <updated>2021-03-30T16:22:06.920Z</updated>
+    <updated>2024-09-19T04:03:08.611Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;strong&gt;自Y5S3暗影之遗行动开始, 声音文件由PCK包变为了AnvilNext的Forge包. 本教程暂未对此做出更新&lt;/strong&gt;&lt;/p&gt;
@@ -58,9 +58,9 @@
     
     
     
-    <category term="教程" scheme="http://blog.infi.wang/categories/%E6%95%99%E7%A8%8B/"/>
-    
     <category term="中文" scheme="http://blog.infi.wang/categories/%E4%B8%AD%E6%96%87/"/>
+    
+    <category term="教程" scheme="http://blog.infi.wang/categories/%E6%95%99%E7%A8%8B/"/>
     
     <category term="游戏" scheme="http://blog.infi.wang/categories/%E6%B8%B8%E6%88%8F/"/>
     
@@ -88,11 +88,10 @@
     <link href="http://blog.infi.wang/posts/2019/12/his-oi-story.zh/"/>
     <id>http://blog.infi.wang/posts/2019/12/his-oi-story.zh/</id>
     <published>2019-12-01T13:15:49.000Z</published>
-    <updated>2021-03-30T16:22:06.916Z</updated>
+    <updated>2024-09-19T04:03:08.610Z</updated>
     
     
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://cdn.infi.wang/pic/blog/his-oi-story/infiWangAndSF.jpg&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
+    <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;&amp;emsp;&amp;emsp;西西佛斯因恼怒了神祇, 被罚以一项永无止歇的苦刑: 将一块大石头从奥林帕斯山下推到山上. 但由于诅咒的力量, 巨石抵达山顶的刹那, 就会自动滚落到山下, 周而复始. 西西佛斯永远没有完成使命的一天, 永远重复同样劳苦无望的命运……&lt;br&gt;&amp;emsp;&amp;emsp;然而有一天, 西西佛斯在搬运巨石的途中忽然觉得自己搬动巨石的每个动作都那么美: 他专注地观察着自己全力以赴的每个当下, 有了一种幸福感; 他全心享受这份苦役, 不再抱怨焦虑. 奇妙的事发生了: 诅咒竟然在这一刹那解除, 巨石不再滚回山下, 西西佛斯从永无休止的苦役中重获自由.&lt;/p&gt;
 &lt;/blockquote&gt;</summary>
     
@@ -118,7 +117,7 @@
     <link href="http://blog.infi.wang/posts/2019/11/noip2018-d2t1-solution.zh/"/>
     <id>http://blog.infi.wang/posts/2019/11/noip2018-d2t1-solution.zh/</id>
     <published>2019-11-12T20:33:42.000Z</published>
-    <updated>2021-03-30T16:22:06.920Z</updated>
+    <updated>2024-09-19T04:03:08.611Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://cdn.infi.wang/pic/blog/noip2018-d2t1-solution/brutalForceTLE.png&quot; alt=&quot;initalResult&quot;&gt;&lt;/p&gt;
